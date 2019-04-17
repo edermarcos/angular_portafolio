@@ -1,0 +1,33 @@
+@import '../utils/variables';
+@import '../utils/mixins';
+
+.rs-w {
+  @include box-shadow();
+  background: white;
+  padding: 1rem 0;
+
+  &_header {
+    border-bottom: 1px solid rgba($gray-400, 0.5);
+    margin: 0 1rem;
+    padding-bottom: 1rem;
+
+    h3 {
+      text-transform: capitalize;
+      font-size: 0.9rem;
+      color: $emphasis;
+    }
+  }
+
+  &_main {
+    font-size: 0.8rem;
+  }
+
+  &_footer {
+    color: $gray-600;
+    i {
+      @include lys-transition(color);
+        margin-right: 1rem;
+      cursor: pointer;
+    }
+  }
+}

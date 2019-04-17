@@ -1,1 +1,19 @@
-/* You can add global styles to this file, and also import other style files */
+/* ==================
+	  Utils
+==================== */
+@import 'assets/utils/utils';
+
+/* ==================
+		Reset
+==================== */
+@import '/assets/base/reset';
+
+/* ==================
+	  Utils
+==================== */
+@import 'assets/components/components';
+
+/* ==================
+	  Bootstrap
+==================== */
+@import '~bootstrap/scss/bootstrap';

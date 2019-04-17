@@ -1,0 +1,80 @@
+@import '../assets/utils/variables';
+@import '../assets/utils/mixins';
+
+// Navbar
+.navbar {
+  @include box-shadow();
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  background-color: white;
+
+  .navbar-nav {
+    .nav-item {
+      @include lys-transition(background-color);
+      margin-left: 0.25rem;
+      margin-right: 0.25rem;
+
+      a {
+        letter-spacing: 0.75px;
+        color: $emphasis;
+        font-size: 0.85rem;
+        font-weight: 500;
+      }
+
+      &.active {
+        box-shadow: 0 2px $ui-primary;
+        a {
+          color: $ui-primary;
+        }
+      }
+
+      &:hover {
+        box-shadow: 0 2px rgba($ui-primary, 0.25);
+      }
+    }
+  }
+}
+
+.section {
+  @include height(600px);
+  background-color: transparent;
+}
+
+.header {
+  @include height(930px);
+  background-position: right;
+  background-repeat: no-repeat;
+  background-color: white;
+  background-image: url("/assets/images/bnr-shape-2.png");
+
+  &_content {
+    @include height(930px);
+    @include flexbox();
+    @include flex-direction(column);
+    @include justify-content(center);
+
+    &_title,
+    &_name {
+      font-weight: 700;
+    }
+
+    &_title {
+      text-transform: uppercase;
+      color: $gray-600;
+      letter-spacing: 3px;
+      margin-bottom: 0.5rem;
+    }
+
+    &_name {
+      font-size: 3rem;
+    }
+
+    &_job {
+      font-size: 2rem;
+    }
+
+    &_button {
+      margin-top: 2rem;
+    }
+  }
+}

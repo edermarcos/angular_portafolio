@@ -1,0 +1,14 @@
+@import '../utils/variables';
+
+::-webkit-scrollbar {
+  width: 0.5rem;
+  height: 0.5rem;
+}
+::-webkit-scrollbar-track {
+  background-color: $gray-200;
+  border-radius: 0.25rem;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgba($normal, 0.5);
+  border-radius: 0.25rem;
+}
