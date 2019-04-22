@@ -1,47 +1,11 @@
 @import '../assets/utils/variables';
 @import '../assets/utils/mixins';
 
-// Navbar
-.navbar {
-  @include box-shadow();
-  position: relative;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  background-color: white;
-  z-index: 1;
-
-  .navbar-nav {
-    .nav-item {
-      @include lys-transition(background-color);
-      margin-left: 0.25rem;
-      margin-right: 0.25rem;
-
-      a {
-        letter-spacing: 0.75px;
-        color: $emphasis;
-        font-size: 0.85rem;
-        font-weight: 500;
-      }
-
-      &.active {
-        box-shadow: 0 2px $ui-primary;
-        a {
-          color: $ui-primary;
-        }
-      }
-
-      &:hover {
-        box-shadow: 0 2px rgba($ui-primary, 0.25);
-      }
-    }
-  }
-}
-
 .section {
   min-height: 600px;
   background-color: transparent;
-  padding-top: 5rem;
-  padding-bottom: 5rem;
+  padding-top: 6rem;
+  padding-bottom: 6rem;
 
   &_header {
     display: inline-block;
@@ -86,6 +50,43 @@
   }
 }
 
+// Navbar
+.navbar {
+  @include box-shadow();
+  position: relative;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  background-color: white;
+  z-index: 1;
+
+  .navbar-nav {
+    .nav-item {
+      @include lys-transition(background-color);
+      margin-left: 0.25rem;
+      margin-right: 0.25rem;
+
+      a {
+        letter-spacing: 0.75px;
+        color: $emphasis;
+        font-size: 0.85rem;
+        font-weight: 500;
+      }
+
+      &.active {
+        box-shadow: 0 2px $ui-primary;
+        a {
+          color: $ui-primary;
+        }
+      }
+
+      &:hover {
+        box-shadow: 0 2px rgba($ui-primary, 0.25);
+      }
+    }
+  }
+}
+
+// Home
 .header {
   @include height(930px);
   padding-top: 0;
@@ -96,14 +97,14 @@
   background-image: url("/assets/images/bnr-shape-2.png");
   position: relative;
 
-  &:after {
+  &:before {
+    @include bg-image(cover);
     content: '';
     position: absolute;
     width: 100px;
     height: 400px;
     left: 0;
     bottom: 100px;
-    @include bg-image(cover);
     background-image: url("/assets/images/side-shape-left.png");
   }
 
@@ -120,7 +121,7 @@
 
     &_title {
       text-transform: uppercase;
-      color: $gray-600;
+      color: $ui-primary;
       letter-spacing: 3px;
       margin-bottom: 0.5rem;
     }
@@ -139,31 +140,42 @@
   }
 }
 
+// About Me
 .about-me {
   &_content {
-    &_img {
-      @include bg-image(contain);
-      @include height(400px);
-      background-image: url("/assets/images/ill.png");
+    @include flexbox;
+    @include flex-direction(column);
+    @include justify-content(center);
+
+    p {
+      margin-bottom: 1rem;
     }
   }
-}
-
-.why-me {
-  background-color: white;
-
-  &_content {
-
+  &_img {
+    @include bg-image(contain);
+    @include height(350px);
+    background-image: url("/assets/images/ill.png");
   }
 }
 
+// Skills
 .skills {
   @include bg-image(cover);
   background-image: url("/assets/images/bg_1.svg");
   background-color: white;
 
   &_content {
-    .pb {
+    .card {
+      background-color: rgba(white, 0.25);
+      border-radius: 0;
+
+      .card-title {
+        text-align: center;
+        font-weight: 400;
+      }
+    }
+
+    .progress-b {
       margin-bottom: 2rem;
 
       &_data {
@@ -189,7 +201,7 @@
 
       &_bar {
         height: 0.25rem;
-        background-color: $gray-400;
+        background-color: $gray-200;
         position: relative;
 
         &:before {
@@ -199,11 +211,163 @@
           height: 100%;
           background-color: $ui-primary;
         }
+
+        &.pw-5 {
+          &:before {
+            width: 5%;
+          }
+        }
+        &.pw-10 {
+          &:before {
+            width: 10%;
+          }
+        }
+        &.pw-15 {
+          &:before {
+            width: 15%;
+          }
+        }
+        &.pw-20 {
+          &:before {
+            width: 20%;
+          }
+        }
+        &.pw-25 {
+          &:before {
+            width: 25%;
+          }
+        }
+        &.pw-30 {
+          &:before {
+            width: 30%;
+          }
+        }
+        &.pw-35 {
+          &:before {
+            width: 35%;
+          }
+        }
+        &.pw-40 {
+          &:before {
+            width: 40%;
+          }
+        }
+        &.pw-45 {
+          &:before {
+            width: 45%;
+          }
+        }
+        &.pw-50 {
+          &:before {
+            width: 50%;
+          }
+        }
+        &.pw-55 {
+          &:before {
+            width: 55%;
+          }
+        }
+        &.pw-60 {
+          &:before {
+            width: 60%;
+          }
+        }
+        &.pw-65 {
+          &:before {
+            width: 65%;
+          }
+        }
+        &.pw-70 {
+          &:before {
+            width: 70%;
+          }
+        }
+        &.pw-75 {
+          &:before {
+            width: 75%;
+          }
+        }
+        &.pw-80 {
+          &:before {
+            width: 80%;
+          }
+        }
+        &.pw-85 {
+          &:before {
+            width: 85%;
+          }
+        }
+        &.pw-90 {
+          &:before {
+            width: 90%;
+          }
+        }
+        &.pw-95 {
+          &:before {
+            width: 95%;
+          }
+        }
+        &.pw-100 {
+          &:before {
+            width: 100%;
+          }
+        }
+      }
+
+      &:last-child {
+        margin-bottom: 0;
       }
     }
   }
 }
 
+// Why Me
+.why-me {
+  position: relative;
+  background-color: $ui-primary;
+
+  &_content {
+    @include flexbox;
+    @include align-items(center);
+    color: white;
+
+    .list-group {
+      .list-group-item {
+        background-color: transparent;
+        border-color: rgba($gray-50, 0.2);
+      }
+    }
+  }
+
+  &_img {
+    @include bg-image(contain);
+    @include height(400px);
+    background-image: url("/assets/images/ill.png");
+  }
+
+  &:before {
+    @include bg-image(contain);
+    content: '';
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    top: 0;
+    right: 0;
+    background-image: url("/assets/images/dot-squire.png");
+  }
+}
+
+// Education
+.education {
+  @include bg-image(cover);
+  background-color: white;
+  background-image: url("/assets/images/shape-bg1.png");
+
+  &_content {
+  }
+}
+
+// Experience
 .experience {
   background-color: white;
 
@@ -212,6 +376,7 @@
   }
 }
 
+// Portafolio
 .portafolio {
   background-color: $ui-primary;
 
@@ -219,3 +384,6 @@
 
   }
 }
+
+// Footer
+.footer {}
