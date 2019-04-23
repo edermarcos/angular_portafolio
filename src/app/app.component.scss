@@ -142,9 +142,7 @@
 
 // About Me
 .about-me {
-  @include bg-image(contain);
-  background-color: white;
-  background-image: url("/assets/images/general.png");
+  position: relative;
 
   &_content {
     @include flexbox;
@@ -155,10 +153,22 @@
       margin-bottom: 1rem;
     }
   }
+
   &_img {
     @include bg-image(contain);
     @include height(350px);
     background-image: url("/assets/images/ill.png");
+  }
+
+  &:after {
+    @include bg-image(cover);
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    z-index: -1;
+    background-image: url("/assets/images/tab-bg.jpg");
   }
 }
 
@@ -447,19 +457,19 @@
 
 // Education
 .education {
-  @include bg-image(cover);
   background-color: white;
-  background-image: url("/assets/images/bg_2.svg");
+  position: relative;
 
   &_content {
     @include flexbox;
-    margin-bottom: 2rem;
+    position: relative;
+    margin-bottom: 3rem;
 
     &_logo {
       @include wh(130px);
       margin-right: 1rem;
       border-radius: 50%;
-      background-color: $ui-primary;
+      background-color: rgba($ui-primary, 0.2);
     }
 
     &_data {
@@ -469,8 +479,12 @@
 
       h3 {
         font-weight: 400;
-        font-size: 1.5rem;
+        font-size: 1.3rem;
         color: $emphasis;
+      }
+
+      &_school {
+        font-size: 0.95rem;
       }
 
       &_date {
@@ -479,6 +493,7 @@
 
       &_country {
         color: $ui-primary;
+        font-size: 0.9rem;
       }
     }
 
@@ -495,6 +510,23 @@
           text-align: right;
         }
       }
+
+      &:before {
+        -webkit-transform: rotate(180deg);
+        transform: rotate(180deg);
+      }
+    }
+
+    &:before {
+      @include bg-image(cover);
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      filter: opacity(1) drop-shadow(0 0 0 $emphasis);
+      background-image: url("/assets/images/general.png");
     }
   }
 }
@@ -504,7 +536,59 @@
   position: relative;
   background-color: white;
 
-  &_content { }
+  &_content {
+    @include align-items(center);
+    border-bottom: 1px solid rgba($ui-primary, 0.2);
+    margin-bottom: 3rem;
+
+    &_img {
+      @include bg-image(contain);
+      @include height(200px);
+      background-image: url("/assets/images/contact-vector.png");
+    }
+
+    &_data {
+      //border: 1px solid $ui-primary;
+      padding: 1rem;
+
+      &_job {
+        color: $ui-primary;
+        font-weight: 300;
+      }
+
+      &_company {
+        color: $normal;
+        font-weight: 500;
+        font-size: 1rem;
+      }
+
+      &_date,
+      &_address {
+        font-size: 0.8rem;
+      }
+
+      &_date {
+        color: $gray-600;
+      }
+
+      &_address {
+        margin-bottom: 2rem;
+        text-align: right;
+      }
+
+      &_tasks {
+        color: $ui-primary;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        font-weight: 500;
+      }
+
+      ul {
+        font-size: 0.9rem;
+        margin-bottom: 0;
+      }
+    }
+  }
 
   &:before {
     @include bg-image(cover);
@@ -513,9 +597,20 @@
     width: 100px;
     height: 400px;
     right: 0;
-    bottom: 0;
+    top: 0;
     -webkit-transform: rotate(180deg);
     transform: rotate(180deg);
+    background-image: url("/assets/images/side-shape-left.png");
+  }
+
+  &:after {
+    @include bg-image(cover);
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 400px;
+    bottom: 0;
+    left: 0;
     background-image: url("/assets/images/side-shape-left.png");
   }
 }
@@ -529,7 +624,6 @@
 
 // Footer
 .footer {
-  @include bg-image(cover);
-  min-height: 400px;
-  background-image: url("/assets/images/footer-shape.png");
+  background-color: $ui-primary;
+  color: white;
 }
