@@ -16,7 +16,7 @@
     h1 {
       display: inline-block;
       font-size: 0.9rem;
-      color: $ui-primary;
+      color: $accent;
       text-transform: uppercase;
       font-weight: 500;
       letter-spacing: 3px;
@@ -30,7 +30,7 @@
         left: 35%;
         bottom: -0.5rem;
         height: 2px;
-        background-color: $ui-primary;
+        background-color: $accent;
       }
     }
 
@@ -89,23 +89,26 @@
 
 // Home
 .header {
-  @include height(930px);
+  @include height(800px);
   padding-top: 0;
   padding-bottom: 0;
-  background-position: right;
+  background-position: center right;
   background-repeat: no-repeat;
-  background-image: url("/assets/images/bnr-shape.png");
+  background-size: contain;
+  background-image: url("/assets/images/header_user.svg");
   position: relative;
 
   &:before {
-    @include bg-image(cover);
+    //@include bg-image(contain);
     content: '';
     position: absolute;
-    width: 100px;
-    height: 400px;
-    left: 0;
-    top: 50px;
-    background-image: url("/assets/images/side-shape-left.png");
+    width: 100%;
+    height: 95%;
+    top: 5%;
+    background-position: center left;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url("/assets/images/header_background.svg");
   }
 
   &_content {
@@ -120,10 +123,10 @@
     }
 
     &_title {
-      text-transform: uppercase;
       color: $ui-primary;
       letter-spacing: 3px;
       margin-bottom: 0.5rem;
+      font-size: 1.25rem;
     }
 
     &_name {
@@ -131,7 +134,7 @@
     }
 
     &_job {
-      font-size: 2rem;
+      font-size: 1.5rem;
     }
 
     &_button {
@@ -156,8 +159,7 @@
       &_image {
         @include bg-image(contain);
         @include height(300px);
-        background-color: rgba($ui-primary, 0.1);
-        background-image: url("/assets/images/ill.png");
+        background-image: url("/assets/images/welcome.png");
       }
 
       &_about {
@@ -189,9 +191,11 @@
 
         .title {
           font-weight: 500;
+          color: $accent;
         }
 
         .separator {
+          color: $accent;
           display: none;
           text-align: center;
           width: 80px;
@@ -232,9 +236,10 @@
         min-height: 80px;
         color: $gray-700;
         cursor: pointer;
+        text-decoration: none;
 
         &:hover {
-          color: $normal;
+          color: $accent;
         }
 
         &:first-child {
@@ -252,7 +257,6 @@
 // Skills
 .skills {
   position: relative;
-  background-color: transparent;
 
   &_content {
     .card {
@@ -281,7 +285,7 @@
 
         &_title {
           text-transform: uppercase;
-          color: $emphasis;
+          color: $normal;
         }
 
         &_number {
@@ -481,26 +485,14 @@
       }
     }
   }
-
-  &:before {
-    @include bg-image(cover);
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    z-index: -1;
-    background-image: url("/assets/images/bg_1.svg");
-    background-color: white;
-    -webkit-transform: rotate(180deg);
-    transform: rotate(180deg);
-  }
 }
 
 // Why Me
 .why-me {
   position: relative;
-  background-color: $ui-primary;
+  @include bg-image(contain);
+  background-image: url("/assets/images/whyme_background.svg");
+  //background-color: $ui-primary;
 
   &_content {
     @include flexbox;
@@ -518,18 +510,7 @@
   &_img {
     @include bg-image(contain);
     @include height(400px);
-    background-image: url("/assets/images/ill-2.png");
-  }
-
-  &:before {
-    @include bg-image(contain);
-    content: '';
-    position: absolute;
-    width: 250px;
-    height: 250px;
-    top: 0;
-    right: 0;
-    background-image: url("/assets/images/dot-squire.png");
+    background-image: url("/assets/images/ill.png");
   }
 }
 
@@ -542,14 +523,6 @@
     @include flexbox;
     position: relative;
     margin-bottom: 3rem;
-
-    &_logo {
-      @include wh(130px);
-      display: none;
-      margin-right: 1rem;
-      border-radius: 50%;
-      background-color: rgba($ui-primary, 0.2);
-    }
 
     &_data {
       @include flexbox;
@@ -591,12 +564,6 @@
     @include align-items(center);
     border-bottom: 1px solid rgba($ui-primary, 0.2);
     margin-bottom: 3rem;
-
-    &_img {
-      @include bg-image(contain);
-      @include height(200px);
-      background-image: url("/assets/images/contact-vector.png");
-    }
 
     &_data {
       //border: 1px solid $ui-primary;
@@ -672,7 +639,7 @@
 
   &:before,
   &:after {
-    @include bg-image(contain);
+    @include bg-image(cover);
     content: '';
     position: absolute;
     width: 250px;
@@ -688,6 +655,94 @@
   &:after {
     bottom: 0;
     left: 0;
+  }
+
+  .card-works {
+    @include box-shadow;
+    position: relative;
+    z-index: 1;
+    background-color: white;
+    margin-bottom: 2rem;
+
+    &_img {
+      @include flexbox;
+      @include align-items(center);
+      padding: 0;
+
+      img {
+        @include height(430px);
+        filter: brightness(0.75);
+      }
+    }
+
+    &_content {
+      padding-top: 1rem;
+
+      &_title,
+      &_date,
+      &_description,
+      &_list,
+      &_tasks {
+        margin: 0 0.75rem;
+      }
+
+      &_title {
+        display: flex;
+        align-self: flex-end;
+        font-weight: 300;
+        color: $ui-primary;
+        text-align: right;
+        font-size: 1.5rem;
+      }
+
+      &_date {
+        font-size: 0.8rem;
+        margin-bottom: 1rem;
+        text-align: right;
+        color: $gray-600;
+      }
+
+      &_description,
+      &_list {
+        font-size: 0.9rem;
+      }
+
+      &_description {
+        margin-bottom: 1rem;
+        text-align: justify;
+      }
+
+      &_tasks {
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        font-weight: 500;
+        color: $ui-primary;
+      }
+
+      &_list {
+        margin-bottom: 2rem;
+      }
+
+      &_tools {
+        padding: 0.5rem 1rem;
+        background-color: $gray-100;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        text-align: right;
+
+        i {
+          font-size: 1rem;
+          margin-right: 1.25rem;
+          color: $gray-600;
+
+          &:last-child {
+            margin-right: 0;
+          }
+        }
+      }
+    }
   }
 }
 
@@ -705,9 +760,11 @@
     @include align-items(center);
     @include justify-content(center);
     @include lys-transition(background-color);
+    text-decoration: none;
     border-radius: 50%;
     background-color: rgba(white, 0.15);
     cursor: pointer;
+    color: white;
 
     &:hover {
       background-color: white;

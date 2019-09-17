@@ -1,7 +1,9 @@
 @import '../utils/variables';
 @import '../utils/utils';
 
+a[btn],
 button[btn] {
+  text-decoration: none !important;
   text-transform: uppercase;
   background-color: transparent;
   border: 1px solid transparent;
@@ -67,6 +69,7 @@ button[btn] {
   }
 }
 
+a[btn][raised],
 button[btn][raised] {
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.26);
 
@@ -95,6 +98,7 @@ button[btn][raised] {
   }
 }
 
+a[btn][outlined],
 button[btn][outlined] {
   border: 1px solid $normal;
 
