@@ -95,21 +95,8 @@
   background-position: center right;
   background-repeat: no-repeat;
   background-size: contain;
-  background-image: url("/assets/images/header_user.svg");
+  background-image: url("/assets/images/eder.png");
   position: relative;
-
-  &:before {
-    //@include bg-image(contain);
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 95%;
-    top: 5%;
-    background-position: center left;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-image: url("/assets/images/header_background.svg");
-  }
 
   &_content {
     @include height(930px);
@@ -140,6 +127,17 @@
     &_button {
       margin-top: 2rem;
     }
+  }
+
+  &:after {
+    @include bg-image(cover);
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 400px;
+    bottom: 0;
+    left: 0;
+    background-image: url("/assets/images/side-shape-left.png");
   }
 }
 
@@ -191,11 +189,11 @@
 
         .title {
           font-weight: 500;
-          color: $accent;
+          color: $normal;
         }
 
         .separator {
-          color: $accent;
+          color: $normal;
           display: none;
           text-align: center;
           width: 80px;
@@ -490,9 +488,7 @@
 // Why Me
 .why-me {
   position: relative;
-  @include bg-image(contain);
-  background-image: url("/assets/images/whyme_background.svg");
-  //background-color: $ui-primary;
+  background-color: $ui-primary;
 
   &_content {
     @include flexbox;
@@ -511,6 +507,17 @@
     @include bg-image(contain);
     @include height(400px);
     background-image: url("/assets/images/ill.png");
+  }
+
+  &:before {
+    @include bg-image(contain);
+    content: '';
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    top: 0;
+    right: 0;
+    background-image: url("/assets/images/dot-squire.png");
   }
 }
 
@@ -636,26 +643,6 @@
 .portafolio {
   position: relative;
   background-color: white;
-
-  &:before,
-  &:after {
-    @include bg-image(cover);
-    content: '';
-    position: absolute;
-    width: 250px;
-    height: 250px;
-    background-image: url("/assets/images/dot-squire.png");
-  }
-
-  &:before {
-    top: 0;
-    right: 0;
-  }
-
-  &:after {
-    bottom: 0;
-    left: 0;
-  }
 
   .card-works {
     @include box-shadow;
